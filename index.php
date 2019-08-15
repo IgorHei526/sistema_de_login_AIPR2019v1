@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" minlength="6" required>
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" autocomplete="off" minlength="6" required>
                     </div>
 
                     <div class="form-group mt-5">
@@ -78,28 +78,28 @@
                 <form action="#" class="p-2" id="formCadastro">
 
                     <div class="form-group">
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" minlength="5" required>
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" autocomplete="off" placeholder="Nome completo" minlength="5" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="nomeUsuário" id="nomeUsuário" class="form-control" placeholder="Nome de Usuário" minlength="5" required>
+                        <input type="text" name="nomeUsuário" id="nomeUsuário" class="form-control" autocomplete="off" placeholder="Nome de Usuário" minlength="5" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="email" name="emailUsuário" id="emailUsuário" class="form-control" placeholder="E-mail de Usuário" required>
+                        <input type="email" name="emailUsuário" id="emailUsuário" class="form-control" autocomplete="off" placeholder="E-mail de Usuário" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senhaUsuário" id="senhaUsuário" class="form-control" placeholder="Digite sua senha" minlength="6" required>
+                        <input type="password" name="senhaUsuário" id="senhaUsuário" class="form-control" autocomplete="off" placeholder="Digite sua senha" minlength="6" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senhaConfirma" id="senhaConfirma" class="form-control" placeholder="Confirme a sua senha" minlength="6" required>
+                        <input type="password" name="senhaConfirma" id="senhaConfirma" class="form-control" autocomplete="off" placeholder="Confirme a sua senha" minlength="6" required>
                     </div>
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
+                            <input type="checkbox" name="concordar" id="concordar" autocomplete="off" class="custom-control-input">
                             <label for="concordar" class="custom-control-label">
                                 Eu concordo com os
                                 <a href="#"> termos e condições.</a>
@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="email" name="emailSenha" id="emailSenha" class="form-control" placeholder="E-mail" required>
+                        <input type="email" name="emailSenha" id="emailSenha" class="form-control" autocomplete="off" placeholder="E-mail" required>
                     </div>
 
                     <div class="form-group">
@@ -168,25 +168,53 @@
             //Envio dos dados do formulário de login
             $('#btnEntrar').click(function(e) {
                 let formLogin = document.querySelector("#formLogin")
-                if(formLogin.checkValidity()){
+                if (formLogin.checkValidity()) {
                     e.preventDefault(); //Não recarregar a página
                     $.ajax({
                         url: 'recebe.php',
                         method: 'post',
-                        data: $('#formLogin').serialize()+'&action=login',
-                        success: function(resposta){
+                        data: $('#formLogin').serialize() + '&action=login',
+                        success: function(resposta) {
                             $('#alerta').show();
-                            $('#resultado').html("resposta:"+resposta);
+                            $('#resultado').html(resposta);
                         }
                     });
                 }
             });
 
             // Formulário de cadastro de Usuário
-            $('#btnRegistrar').click(function(e) {});
+            $('#btnRegistrar').click(function(e) {
+                let formCadastro = document.querySelector("#formCadastro")
+                if (formCadastro.checkValidity()) {
+                    e.preventDefault(); //Não recarregar a página
+                    $.ajax({
+                        url: 'recebe.php',
+                        method: 'post',
+                        data: $('#formCadastro').serialize() + '&action=cadastro',
+                        success: function(resposta) {
+                            $('#alerta').show();
+                            $('#resultado').html(resposta);
+                        }
+                    });
+                }
+            });
 
             // Formulário para mudar de Senha
-            $('#btnEnviarEmail').click(function(e) {});
+            $('#btnEnviarEmail').click(function(e) {
+                let formSenha = document.querySelector("#formSenha")
+                if (formSenha.checkValidity()) {
+                    e.preventDefault(); //Não recarregar a página
+                    $.ajax({
+                        url: 'recebe.php',
+                        method: 'post',
+                        data: $('#formSenha').serialize() + '&action=email',
+                        success: function(resposta) {
+                            $('#alerta').show();
+                            $('#resultado').html(resposta);
+                        }
+                    });
+                }
+            });
 
 
             //Trocar da Tela de Login para Recuperar Senha
