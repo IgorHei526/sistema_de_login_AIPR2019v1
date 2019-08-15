@@ -207,7 +207,7 @@
                     $.ajax({
                         url: 'recebe.php',
                         method: 'post',
-                        data: $('#formSenha').serialize() + '&action=email',
+                        data: $('#formSenha').serialize() + '&action=senha',
                         success: function(resposta) {
                             $('#alerta').show();
                             $('#resultado').html(resposta);
