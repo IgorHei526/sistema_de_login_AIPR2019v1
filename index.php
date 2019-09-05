@@ -46,7 +46,7 @@
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input">
+                            <input type="checkbox" name="lembrar" id="lembrar" autocomplete="off" class="custom-control-input">
 
                             <label for="lembrar" class="custom-control-label">
                                 Lembrar de mim.
@@ -177,6 +177,10 @@
                         success: function(resposta) {
                             $('#alerta').show();
                             $('#resultado').html(resposta);
+                            if(resposta = "ok"){
+                                // Redirecionamento
+                                window.location = 'profile.php';
+                            }
                         }
                     });
                 }
