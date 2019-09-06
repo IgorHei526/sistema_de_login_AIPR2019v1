@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(isset($_SESSION['nomeUsuario']))
+session_start();
+if (isset($_SESSION['nomeUsuario']))
     // Bloqueando usuários logados
-        header("location: profile.php");
+    header("location: profile.php");
 ?>
 
 <!DOCTYPE html>
@@ -97,6 +97,10 @@
                     </div>
 
                     <div class="form-group">
+                        <input type="url" name="urlAvatar" id="urlAvatar" class="form-control" autocomplete="off" placeholder="URL para Imagem do seu Perfil" required>
+                    </div>
+
+                    <div class="form-group">
                         <input type="password" name="senhaUsuário" id="senhaUsuário" class="form-control" autocomplete="off" placeholder="Digite sua senha" minlength="6" required>
                     </div>
 
@@ -184,7 +188,7 @@
                         success: function(resposta) {
                             $('#alerta').show();
                             $('#resultado').html(resposta);
-                            if(resposta === "ok"){
+                            if (resposta === "ok") {
                                 // Redirecionamento
                                 window.location = 'profile.php';
                             }
