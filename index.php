@@ -44,16 +44,16 @@ if (isset($_SESSION['nomeUsuario']))
                 <form id="formLogin" class="p-2">
 
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" autocomplete="off" required minlength="5">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" autocomplete="off" required minlength="5" value="<?php if (isset($_COOKIE['nomeUsuario'])) echo $_COOKIE['nomeUsuario']; ?>">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" autocomplete="off" minlength="6" required>
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" autocomplete="off" minlength="6" required value="<?php if (isset($_COOKIE['senhaUsuario'])) echo $_COOKIE['senhaUsuario']; ?>">
                     </div>
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" autocomplete="off" class="custom-control-input">
+                            <input type="checkbox" name="lembrar" id="lembrar" autocomplete="off" class="custom-control-input" <?php if(isset($_COOKIE['nomeUsuario'])) echo " checked"; ?>>
 
                             <label for="lembrar" class="custom-control-label">
                                 Lembrar de mim.
