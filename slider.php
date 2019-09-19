@@ -62,22 +62,22 @@ require_once 'session.php';
                     <div class="carousel-item active">
                         <img src="images/paisagem1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Praia</h5>
-                            <p>Uma linda praia, muito relaxante.</p>
+                            <h5 class="bg-secondary">Praia</h5>
+                            <p class="bg-secondary">Uma linda praia, muito relaxante.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/paisagem2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Pedra</h5>
-                            <p>Ninguém sabe como ela foi parar ali.</p>
+                            <h5 class="bg-secondary">Pedra</h5>
+                            <p class="bg-secondary">Ninguém sabe como ela foi parar ali.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/paisagem3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Casa</h5>
-                            <p>Uma casa em um local muito confortável.</p>
+                            <h5 class="bg-secondary">Casa</h5>
+                            <p class="bg-secondary">Uma casa em um local muito confortável.</p>
                         </div>
                     </div>
                 </div>
